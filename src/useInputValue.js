@@ -1,4 +1,4 @@
-import { useState } from "react";
+const { useState } = require("react");
 
 function useInputValue({
   initialValue,
