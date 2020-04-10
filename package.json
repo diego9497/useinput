@@ -1,0 +1,30 @@
+{
+  "name": "use-input-value",
+  "version": "1.0.0",
+  "description": "React hook that allow us an easy validation and manage styles",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diego9497/useinput.git"
+  },
+  "keywords": [
+    "React",
+    "hooks",
+    "input",
+    "validation",
+    "styles"
+  ],
+  "author": "Diego Aguilera <diego.aguilera@unillanos.edu.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diego9497/useinput/issues"
+  },
+  "homepage": "https://github.com/diego9497/useinput#readme",
+  "peerdependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
