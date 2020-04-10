@@ -24,6 +24,14 @@ function useInputValue({
     setErrors(evaluation.errors);
   };
 
+  const updateShowError = () => {
+    console.log(value);
+    let evaluation = evaluate(value);
+    setValid(evaluation.result);
+    setShowError(!evaluation.result);
+    setErrors(evaluation.errors);
+  };
+
   const evaluate = (valueCopy) => {
     let requiredResult = true;
     let regExpResult;
@@ -38,7 +46,7 @@ function useInputValue({
     if (!regExpResult) e.regExp = errorMessage.regExp;
     if (!customValidationResult)
       e.customValidation = errorMessage.customValidation;
-    let result = required && regExpResult && customValidationResult;
+    let result = requiredResult && regExpResult && customValidationResult;
     return { result, errors: e };
   };
 
@@ -46,7 +54,7 @@ function useInputValue({
     return evaluate(initialValue).errors;
   });
 
-  return { value, onChange, valid, showError, errors };
+  return { value, onChange, valid, showError, errors, updateShowError };
 }
 
 module.exports = useInputValue;
