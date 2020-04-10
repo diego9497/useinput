@@ -1,9 +1,13 @@
 {
   "name": "use-input-value",
-  "version": "1.0.4",
+  "version": "0.0.1",
   "description": "React hook that allow us an easy validation and manage styles",
-  "main": "src/index.js",
+  "main": "dist/useInputValue.js",
+  "module": "dist/useInputValue.m.js",
+  "umd:main": "dist/useInputValue.umd.js",
+  "source": "src/useInputValue.js",
   "scripts": {
+    "build": "microbundle",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,5 +30,12 @@
   "peerdependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "microbundle": "^0.11.0"
   }
 }

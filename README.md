@@ -58,11 +58,12 @@ const password2 = useInputValue({
 
 | Name        | Description                                                                                                                                          | Type      |
 | ----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `value`     | The state value of the input                                                                                                                         | `any`     |
-| `onChange`  | The function that update the state                                                                                                                   | `fn`      |
-| `valid`     | Says if the input entry is valid                                                                                                                     | `boolean` |
-| `showError` | A variable that helps show error styles. Avoid displaying an error when the input has not been touched.                                              | `boolean` |
+| `value`     | The state value of the field                                                                                                                         | `any`     |
+| `onChange`  | The function that update the state of the value                                                                                                         | `fn`      |
+| `valid`     | Says if the field entry is valid                                                                                                                     | `boolean` |
+| `showError` | A variable that helps show error styles. Avoid displaying an error when the field has not been touched.                                              | `boolean` |
 | `errors`    | An object with the errors present in the validation, could be **empty** or coul be **one or more** of these `required`, `regExp`, `customValidation` | `object`  |
+| `updateShowError` | An function to re-check if the input is valid, useful when an user submit the form and dont focus a field  | `fn`|
 
 ### Examples
 
@@ -140,3 +141,6 @@ export const Error = styled.span`
 `
 
 ```
+
+
+### errorMessages
