@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default useInputValue = ({
+export const useInputValue = ({
   initialValue,
   required = false,
   regEx = /.*/,
