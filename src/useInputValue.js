@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-export const useInputValue = ({
+function useInputValue({
   initialValue,
   required = false,
-  regEx = /.*/,
+  regExp = /.*/,
   customValidation = (value) => true,
   errorMessage = {
     required: "This input must be provide",
-    regEx: "This input does not match the given regular expression",
+    regExp: "This input does not match the given regular expression",
     customValidation: "This input does not match the given custom validation ",
   },
-}) => {
+}) {
   const [value, setValue] = useState(initialValue);
   const [valid, setValid] = useState(!required);
   const [showError, setShowError] = useState(false);
@@ -26,19 +26,19 @@ export const useInputValue = ({
 
   const evaluate = (valueCopy) => {
     let requiredResult = true;
-    let regExResult;
+    let regExpResult;
     let customValidationResult;
     if (required) {
       requiredResult = valueCopy !== "" && valueCopy !== undefined;
     }
-    regExResult = regEx.test(valueCopy);
+    regExpResult = regExp.test(valueCopy);
     customValidationResult = customValidation(valueCopy);
     let e = {};
     if (!requiredResult) e.required = errorMessage.required;
-    if (!regExResult) e.regEx = errorMessage.regEx;
+    if (!regExpResult) e.regExp = errorMessage.regExp;
     if (!customValidationResult)
       e.customValidation = errorMessage.customValidation;
-    let result = required && regExResult && customValidationResult;
+    let result = required && regExpResult && customValidationResult;
     return { result, errors: e };
   };
 
@@ -47,4 +47,6 @@ export const useInputValue = ({
   });
 
   return { value, onChange, valid, showError, errors };
-};
+}
+
+module.exports = useInputValue;

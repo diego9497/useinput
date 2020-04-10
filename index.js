@@ -1,1 +1,2 @@
-export { useInputValue as default } from "./src/useInputValue";
+const useInputValue = require("./src/useInputValue");
+module.exports = useInputValue;
