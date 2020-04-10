@@ -2,11 +2,15 @@
 
 React hook that allow us an easy validation and manage styles.
 
+[Versión español](https://github.com/diego9497/useinput/blob/master/README_es.md)
+
 ```javascript
-const email = useInputValue();
+const email = useInputValue()
 ```
 
 ## 1. Paramaters
+
+Receive an object with the following keys
 
 | Option             | Description                                                                                    | Type      |
 | ------------------ | :--------------------------------------------------------------------------------------------- | --------- |
@@ -23,15 +27,15 @@ const email = useInputValue();
 A username validation where the **input** is required and need to match with a **regular expression**
 
 ```javascript
-const regExpUsername = /^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
+const regExpUsername = /^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/
 ```
 
 ```javascript
 const username = useInputValue({
-  initialValue: "",
+  initialValue: '',
   required: true,
   regExp: regExpUsername,
-});
+})
 ```
 
 #### Password matches
@@ -40,37 +44,38 @@ A password validation where the password inputs must be equals perfomed by a **c
 
 ```javascript
 const password1 = useInputValue({
-  initialValue: "",
+  initialValue: '',
   required: true,
   regExp: regExpPassword,
-});
+})
 
 const password2 = useInputValue({
-  initialValue: "",
+  initialValue: '',
   required: true,
   customValidation: (value) => {
-    return value == password1.value;
+    return value == password1.value
   },
-});
+})
 ```
 
 ## 2. Return
 
-| Name        | Description                                                                                                                                          | Type      |
-| ----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `value`     | The state value of the field                                                                                                                         | `any`     |
-| `onChange`  | The function that update the state of the value                                                                                                         | `fn`      |
-| `valid`     | Says if the field entry is valid                                                                                                                     | `boolean` |
-| `showError` | A variable that helps show error styles. Avoid displaying an error when the field has not been touched.                                              | `boolean` |
-| `errors`    | An object with the errors present in the validation, could be **empty** or coul be **one or more** of these `required`, `regExp`, `customValidation` | `object`  |
-| `updateShowError` | An function to re-check if the input is valid, useful when an user submit the form and dont focus a field  | `fn`|
+| Name              | Description                                                                                                                                          | Type      |
+| ----------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `value`           | The value of the field                                                                                                                               | `any`     |
+| `onChange`        | The function that update the state of the value                                                                                                      | `fn`      |
+| `valid`           | Indicates if the field entry is valid                                                                                                                | `boolean` |
+| `showError`       | A variable that helps show error styles. Avoid displaying an error when the field has not been touched.                                              | `boolean` |
+| `errors`          | An object with the errors present in the validation, could be **empty** or coul be **one or more** of these `required`, `regExp`, `customValidation` | `object`  |
+| `updateShowError` | An function to re-check if the input is valid, useful when an user submit the form and dont modified a field                                         | `fn`      |
 
 ### Examples
 
 #### With className
 
 You can use the key `showError` to put a class to show the correct error styles.
-Or use `showError`, `required`, `regExp`, `customValidation` to show error messages, in this case show just one of the possible errors, and prefer to show the required error message when the input is empty
+Or use `showError`, `required`, `regExp`, `customValidation` to show error messages, in this case show just one of the possible errors at the same time, and prefer to show the required error message when the field is empty above the other possible errors.
+If the field is not empty can display another error if exists.
 
 ```JSX
 <input
@@ -105,7 +110,7 @@ Or use `showError`, `required`, `regExp`, `customValidation` to show error messa
 
 #### With styled-components
 
-You can pass directly the all the variables using the spread operation and use styled-components to show the correct styles.
+You can pass directly the all the variables using the spread operation and use `styled-components` to show the correct styles.
 
 ```JSX
 <Input type="password" {...password1} />
@@ -141,6 +146,3 @@ export const Error = styled.span`
 `
 
 ```
-
-
-### errorMessages
