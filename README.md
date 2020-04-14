@@ -2,6 +2,8 @@
 
 React hook that allow us an easy validation and manage styles.
 
+[Live demo - codesand](https://codesandbox.io/s/useinputvalue-bxugd?file=/src/App.js)
+
 [Versión español](https://github.com/diego9497/useinput/blob/master/README_es.md)
 
 ```javascript

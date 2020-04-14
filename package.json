@@ -1,6 +1,6 @@
 {
   "name": "use-input-value",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React hook that allow us an easy validation and manage styles",
   "main": "dist/useInputValue.js",
   "module": "dist/useInputValue.m.js",
